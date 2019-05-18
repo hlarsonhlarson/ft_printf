@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:41:19 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/16 20:46:33 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 14:52:54 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,12 @@ int		ft_printf(char *format, ...)
 	c = (j < i) ? ft_strjoin(c, create_after_percent(format, i, j)) : c;
 	return (help_1(&c, ap));
 }
-
+/*
 int		main()
 {
 	int i;
 
-	i = printf("\\!/%022.2zi\\!/\n" , 0);
-	i = i - ft_printf("\\!/%022.2zi\\!/\n" , 0);
-	printf("%d\n", i);
+	printf("42%04hhi42\n", 1052373639);
+	ft_printf("42%04hhi42\n", 1052373639);
 	return (0);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 19:16:04 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/16 20:42:36 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 14:52:41 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,24 @@ char	*ft_work_with_zero(char *c, t_flag *flag)
 	size_t	j;
 
 	j = 0;
-	if (flag->precision != -1
-			|| flag->minus == 1 || ((int)flag->width - (int)ft_strlen(c) <= 0))
-		return (c);
 	if (c[0] == '-')
 	{
-		c[0] = '0';
+		flag->space = 0;
+		flag->plus = 0;
 		j = 1;
 	}
-	d = ft_strnew_zero(flag->width - ft_strlen(c)
-						- (2 * flag->octotorp) - flag->space);
+	if (flag->precision != -1
+			|| flag->minus == 1 || (flag->width <= (int)ft_strlen(c) + flag->plus + flag->space))
+		return (c);
+	c[0] = (j == 1) ? '0' : c[0];
+	if (j == 1)
+		d = ft_strnew_zero(flag->width - ft_strlen(c)
+				- (2 * flag->octotorp));
+	else
+		d = ft_strnew_zero(flag->width - ft_strlen(c)
+				- (2 * flag->octotorp) - flag->space - flag->plus);
+	d[0] = (j == 1) ? '-' : d[0];
 	c = ft_strjoin(d, c);
-	c[0] = (j == 1) ? '-' : c[0];
 	return (c);
 }
 
@@ -95,14 +101,19 @@ char	*ft_work_flag(char *c, t_flag *flag)
 {
 	if (flag->precision != -1)
 		c = ft_work_with_precision_not_float(c, flag);
+	//printf("1 %s\n", c);
 	if (flag->zero == 1)
 		c = ft_work_with_zero(c, flag);
+	//printf("2%s\n", c);
 	if (flag->plus == 1)
 		c = ft_work_with_plus(c, flag);
+	//printf("3%s\n", c);
 	if (flag->space == 1)
 		c = ft_work_with_space(c, flag);
+	//printf("4%s\n", c);
 	if (flag->octotorp == 1)
 		c = ft_work_with_octotorp(c, flag);
+	//printf("5%s\n", c);
 	if (flag->minus == 1)
 		c = ft_work_with_minus(c, flag);
 	else
