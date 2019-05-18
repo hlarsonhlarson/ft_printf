@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 19:16:04 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 15:48:30 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 16:17:27 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_work_with_zero(char *c, t_flag *flag)
 	size_t	j;
 	int		k;
 
-//	j = 0;
+	j = 0;
 	k = (flag->octotorp != 0 && flag->type == 'o') ? 1 : 0;
 	k = (flag->octotorp != 0 && (flag->type == 'x' || flag->type == 'X')) ? 2 : k;
 	if (c[0] == '-')
