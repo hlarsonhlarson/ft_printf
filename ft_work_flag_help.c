@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/11 20:43:44 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 12:46:25 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 19:16:28 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_work_with_plus(char *c, t_flag *flag)
 {
 	if (flag->type == 'x' || flag->type == 'X' || flag->type == 'o')
 		return (c);
-	if (c[0] != '-' )//&& c[0] != '0')
+	if (c[0] != '-')
 		c = ft_strjoin(ft_strdup("+"), c);
 	if (c[0] == '0' && flag->precision != -1 && flag->zero != 0)
 		c = ft_strjoin(ft_strdup("+"), c);
@@ -27,7 +27,8 @@ char	*ft_work_with_space(char *c, t_flag *flag)
 {
 	char	*d;
 
-	if (flag->type == 'x' || flag->type == 'X' || flag->type == 'o' || flag->type == '%')
+	if (flag->type == 'x' || flag->type == 'X'
+			|| flag->type == 'o' || flag->type == '%')
 		return (c);
 	if (c[0] == '-' || c[0] == '+')
 		return (c);

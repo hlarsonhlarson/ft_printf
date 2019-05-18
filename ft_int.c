@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 19:38:56 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 14:37:46 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 19:13:17 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		ten_count_numbers(intmax_t n, int k)
 	return (i);
 }
 
-char				*ft_ten(intmax_t d, t_flag *flag)
+char			*ft_ten(intmax_t d, t_flag *flag)
 {
 	char	*c;
 	int		i;
@@ -40,8 +40,6 @@ char				*ft_ten(intmax_t d, t_flag *flag)
 	c = "0123456789";
 	j = 0;
 	i = ten_count_numbers(d, 10) - 1;
-//	if ((int)i > flag->precision && flag->precision != -1)
-//		i = flag->precision;
 	(d < 0) ? j++ : j;
 	d = (d < 0) ? d * (-1) : d;
 	k = ft_strnew(i + j);
@@ -56,7 +54,7 @@ char				*ft_ten(intmax_t d, t_flag *flag)
 	return (k);
 }
 
-char				*ft_int(char a, t_flag *flag, va_list ap)
+char			*ft_int(char a, t_flag *flag, va_list ap)
 {
 	intmax_t	d;
 

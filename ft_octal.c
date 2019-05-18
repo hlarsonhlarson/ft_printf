@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 19:13:37 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 15:51:23 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 19:14:09 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*octal(uintmax_t n, t_flag *flag)
 
 char	*ft_octal(char a, t_flag *flag, va_list ap)
 {
-	uintmax_t    d;
+	uintmax_t	d;
 
 	flag->type = a;
 	if (flag->format == 0)
@@ -55,5 +55,5 @@ char	*ft_octal(char a, t_flag *flag, va_list ap)
 		d = (uintmax_t)va_arg(ap, size_t);
 	if (flag->format == 7)
 		d = (uintmax_t)va_arg(ap, uintmax_t);
-	return (ft_work_flag(octal(d,flag), flag));
+	return (ft_work_flag(octal(d, flag), flag));
 }

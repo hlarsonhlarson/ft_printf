@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 18:41:19 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 16:18:45 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 19:07:07 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,3 @@ int		ft_printf(char *format, ...)
 	c = (j < i) ? ft_strjoin(c, create_after_percent(format, i, j)) : c;
 	return (help_1(&c, ap));
 }
-/*
-int		main()
-{
-	printf(">------------<%40.2zu>------------<\n", 2048552283);
-	ft_printf(">------------<%40.2zu>------------<\n", 2048552283);
-	return (0);
-}*/

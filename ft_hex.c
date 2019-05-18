@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 15:39:02 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 15:19:38 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 19:12:05 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ char	*hex(uintmax_t n, char a, t_flag *flag)
 	size_t				i;
 	char				*x;
 
-	if (a == 'X')
-		c = "0123456789ABCDEF";
-	if (a == 'x')
-		c = "0123456789abcdef";
+	c = (a == 'X') ? "0123456789ABCDEF" : "0123456789abcdef";
 	if (flag->precision == 0)
 	{
 		flag->octotorp = 0;
@@ -45,7 +42,7 @@ char	*hex(uintmax_t n, char a, t_flag *flag)
 
 char	*ft_hex(char a, t_flag *flag, va_list ap)
 {
-	uintmax_t    d;
+	uintmax_t	d;
 
 	flag->type = a;
 	if (flag->format == 0)

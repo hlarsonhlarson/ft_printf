@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 19:38:56 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 16:18:24 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 19:17:45 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static size_t		ten_count_numbers(uintmax_t n, int k)
 
 static char			*ft_ten(uintmax_t d, t_flag *flag)
 {
-	char    *c;
-	int     i;
-	char    *k;
+	char	*c;
+	int		i;
+	char	*k;
 
 	if (flag->precision == 0)
 		return (ft_strdup(""));
@@ -50,7 +50,7 @@ static char			*ft_ten(uintmax_t d, t_flag *flag)
 
 char				*ft_unsigned_int(char a, t_flag *flag, va_list ap)
 {
-	uintmax_t    d;
+	uintmax_t	d;
 
 	flag->type = a;
 	if (flag->format == 0)

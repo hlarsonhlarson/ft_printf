@@ -6,7 +6,7 @@
 #    By: hlarson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/12 16:48:42 by hlarson           #+#    #+#              #
-#    Updated: 2019/05/16 20:12:09 by hlarson          ###   ########.fr        #
+#    Updated: 2019/05/18 19:09:11 by hlarson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ $(NAME):
 	ranlib $(NAME)
 clean:
 	rm -rf $(OUT)
+	rm ft_printf.h.gch
 
 fclean: clean
 	rm -rf $(NAME)
