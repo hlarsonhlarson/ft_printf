@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 19:16:04 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 15:22:58 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 15:48:30 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ char	*ft_work_with_zero(char *c, t_flag *flag)
 {
 	char	*d;
 	size_t	j;
+	int		k;
 
-	j = 0;
+//	j = 0;
+	k = (flag->octotorp != 0 && flag->type == 'o') ? 1 : 0;
+	k = (flag->octotorp != 0 && (flag->type == 'x' || flag->type == 'X')) ? 2 : k;
 	if (c[0] == '-')
 	{
 		flag->space = 0;
@@ -25,15 +28,15 @@ char	*ft_work_with_zero(char *c, t_flag *flag)
 		j = 1;
 	}
 	if (flag->precision != -1
-			|| flag->minus == 1 || (flag->width <= (int)ft_strlen(c) + flag->plus + flag->space + 2 * flag->octotorp))
+			|| flag->minus == 1 || (flag->width <= (int)ft_strlen(c) + flag->plus + flag->space + k))
 		return (c);
 	c[0] = (j == 1) ? '0' : c[0];
 	if (j == 1)
 		d = ft_strnew_zero(flag->width - ft_strlen(c)
-				- (2 * flag->octotorp));
+				- k);
 	else
 		d = ft_strnew_zero(flag->width - ft_strlen(c)
-				- (2 * flag->octotorp) - flag->space - flag->plus);
+				- k - flag->space - flag->plus);
 	d[0] = (j == 1) ? '-' : d[0];
 	c = ft_strjoin(d, c);
 	return (c);
@@ -61,11 +64,13 @@ char	*ft_work_with_minus(char *c, t_flag *flag)
 char	*ft_work_with_precision_not_float(char *c, t_flag *flag)
 {
 	char	*d;
+	int		k;
 
+	k = (flag->octotorp == 1 && flag->type == 'o') ? 1 : 0;
 	if (flag->type == 'f' || flag->type == 'e' || flag->type == 'E' || flag->type == 's' || flag->type == 'c')
 		return (c);
-	if ((int)((int)flag->precision - (int)ft_strlen(c)) >= 0)
-		d = (c[0] == '-') ? ft_strnew_zero(flag->precision - ft_strlen(c) + 2) : ft_strnew_zero(flag->precision - ft_strlen(c));
+	if ((int)((int)flag->precision - (int)ft_strlen(c) - k) >= 0)
+		d = (c[0] == '-') ? ft_strnew_zero(flag->precision - ft_strlen(c) + 2) : ft_strnew_zero(flag->precision - ft_strlen(c) - k);
 	else
 		return (c);
 	if (c[0] == '-')
