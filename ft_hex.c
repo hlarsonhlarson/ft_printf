@@ -6,13 +6,13 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 15:39:02 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/13 19:01:33 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 15:19:38 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*hex(unsigned long long n, char a, t_flag *flag)
+char	*hex(uintmax_t n, char a, t_flag *flag)
 {
 	char				*c;
 	size_t				i;
@@ -45,20 +45,22 @@ char	*hex(unsigned long long n, char a, t_flag *flag)
 
 char	*ft_hex(char a, t_flag *flag, va_list ap)
 {
-	unsigned long long	d;
+	uintmax_t    d;
 
 	flag->type = a;
 	if (flag->format == 0)
-		d = (unsigned long long)va_arg(ap, unsigned int);
+		d = (uintmax_t)va_arg(ap, unsigned int);
 	if (flag->format == 1)
-		d = (unsigned long long)((unsigned char)va_arg(ap, unsigned int));
+		d = (uintmax_t)((unsigned char)va_arg(ap, unsigned int));
 	if (flag->format == 2)
-		d = (unsigned long long)va_arg(ap, unsigned long long);
+		d = (uintmax_t)va_arg(ap, unsigned long long);
 	if (flag->format == 4)
-		d = (unsigned long long)((unsigned short)va_arg(ap, unsigned int));
+		d = (uintmax_t)((unsigned short)va_arg(ap, unsigned int));
 	if (flag->format == 5)
-		d = (unsigned long long)va_arg(ap, unsigned long);
+		d = (uintmax_t)va_arg(ap, unsigned long);
 	if (flag->format == 6)
-		d = (unsigned long long)va_arg(ap, size_t);
-	return ((ft_work_flag(hex(d, a, flag), flag)));
+		d = (uintmax_t)va_arg(ap, size_t);
+	if (flag->format == 7)
+		d = (uintmax_t)va_arg(ap, uintmax_t);
+	return (ft_work_flag(hex(d, a, flag), flag));
 }

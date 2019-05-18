@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:42:38 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/16 20:12:50 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/18 15:11:40 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ union
 
 char			*ft_strnew(size_t size);
 void			ft_bzero(void *s, size_t len);
-size_t			count_numbers(unsigned long long n, int k);
+size_t			count_numbers(uintmax_t n, int k);
 void			ft_putstr(char const *c);
 void			ft_putchar(char c);
 char			*ft_int(char a, t_flag *flag, va_list ap);
