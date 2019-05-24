@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:42:38 by hlarson           #+#    #+#             */
-/*   Updated: 2019/05/18 15:11:40 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/05/22 20:12:04 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,7 @@
 # include <string.h>
 # include <stdarg.h>
 # include <stdint.h>
-# include <stdio.h>
-
-typedef struct	s_flag
-{
-	int			minus;
-	int			plus;
-	int			space;
-	int			format;
-	int			octotorp;
-	int			zero;
-	int			width;
-	int			precision;
-	char		type;
-	char		*value;
-}				t_flag;
-
-union
-{
-	double		fl;
-	long long	x;
-}				u_f;
-
-union
-{
-	long double				ld;
-	unsigned long long		x[2];
-}				u_q;
+# include "ft_includes.h"
 
 char			*ft_strnew(size_t size);
 void			ft_bzero(void *s, size_t len);
