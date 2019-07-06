@@ -20,7 +20,7 @@ static	int		sign(int k, int j)
 		return (j);
 }
 
-static	int		isspace(const char *str)
+static	int		ft_isspace(const char *str)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ int				ft_atoi(const char *nptr)
 	int					k;
 	int					l;
 
-	i = isspace(nptr) + 1;
+	i = ft_isspace(nptr) + 1;
 	j = 0;
 	k = 0;
 	l = 0;

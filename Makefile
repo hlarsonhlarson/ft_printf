@@ -21,7 +21,7 @@ INCLUDES = ft_printf.h
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror -c  $(SRCS) -I $(INCLUDES) 
+	gcc -Wall -Wextra -Werror -c  $(SRCS) 
 	ar rc $(NAME) $(OUT)
 	ranlib $(NAME)
 
